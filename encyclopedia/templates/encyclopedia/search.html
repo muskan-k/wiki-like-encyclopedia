@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <h1>Search results for "{{ key }}": </h1>
+
+        {% for r in result %}
+          <ul>
+            <a href="{% url 'entry' title=r %}">{{r}}</a>
+          </ul>
+
+        {% empty %}
+            <p style= "color:#81828a; font-size:25px">No matching results</p>
+        {% endfor %}
+
+{% endblock %}

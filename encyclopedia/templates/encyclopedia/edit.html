@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h2> Enter content in Markdown syntax</h2>   
+    <label>To get a better understanding, visit:</label>
+        <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Github's Markdown Guide</a>
+<div></div>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="" value="Save">
+  </form>
+
+{% endblock %}
